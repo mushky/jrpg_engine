@@ -1,0 +1,12 @@
+Ruby Strategy JRPG Engine
+
+This is an ongoing project. 
+
+Initial goal is to create an engine for quickly developing games akin to Shining Force or even Final Fantasy Tactics.
+
+Todo:
+
+Complete Rudimentary Turn Based Battle System
+Create Grid System for Movement
+Create Job System
+Create Monster System
