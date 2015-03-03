@@ -2,7 +2,7 @@ Ruby Strategy JRPG Engine
 
 This is an ongoing project. 
 
-Initial goal is to create an engine for quickly developing games akin to Shining Force or even Final Fantasy Tactics.
+Initial goal is to create an  engine for quickly developing terminal jrpg style games. 
 
 Todo:
 
