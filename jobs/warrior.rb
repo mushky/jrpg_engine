@@ -35,6 +35,11 @@ class Warrior
 		puts "#{@name} SWINGS his Weapon for #{attack_value} Points of Damage!"
 	end
 
+	def speed
+		puts "#{@speed}"
+	end
+
+
 	# This method gives the warrior object the ability to attack
 end
 
@@ -45,3 +50,5 @@ Paso.list_stats
 # I'm calling the "list_stats" method on the Paso Object here.
 Paso.attack
 # I'm calling the "attack" method on the Paso Object here.
+Paso.speed
+# I'm calling the "speed" method on the Paso Object here. 
