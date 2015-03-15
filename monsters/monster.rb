@@ -18,7 +18,7 @@ class Monster
 	end
 
 	def attack
-		puts "#{@name} SWINGS his Weapon for #{rand(1..25) + @strength} Points of Damage."
+		puts "#{@name} SWINGS its Weapon for #{rand(1..25) + @strength} Points of Damage."
 	end
 end
 

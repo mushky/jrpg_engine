@@ -6,7 +6,7 @@ class Warrior
 	attr_accessor :hp, :job, :strength, :speed
 	# attr_accessor is a "method" even though it looks different from a normal method.
 	# attr_accessor allows us to "READ" and "WRITE" to any variable within the class definition. 
-	# To signify this we use the "@" symbol. This means its a "Class Variable" and can be accessed
+	# To signify this we use the "@" symbol. This means its an "Instance Variable" and can be accessed
 	# anywhere within the SCOPE of the class as you'll see in the rest of this program.
 	
 	def initialize(name,hp,job,strength,speed)
@@ -31,24 +31,22 @@ class Warrior
 	# This method lists the stats of the warrior object after it has been instantiated.
 
 	def attack #basic attack for now
-		attack_value = rand(strength + rand(25..50))
+		attack_value = strength + rand(25..50)
 		puts "#{@name} SWINGS his Weapon for #{attack_value} Points of Damage!"
 	end
 
-	def speed
-		puts "#{@speed}"
+	def movement
+		puts "#{@name} has moved #{rand(1..2) + (@speed/2)} spaces"
 	end
 
-
-	# This method gives the warrior object the ability to attack
 end
 
-Paso = Warrior.new("Paso", 100, "Warrior", 50, 20)
+Paso = Warrior.new("Paso", 100, "Warrior", 50, 5)
 # This is where the magic happens. This is where we instantiate an object from the warrior class. 
 # You can change some of the "properties" and see how that changes the code up.
 Paso.list_stats
 # I'm calling the "list_stats" method on the Paso Object here.
 Paso.attack
 # I'm calling the "attack" method on the Paso Object here.
-Paso.speed
+Paso.movement
 # I'm calling the "speed" method on the Paso Object here. 

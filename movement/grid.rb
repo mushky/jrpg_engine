@@ -14,7 +14,6 @@ class Grid
 			end
 		end
 	end
-
 end
 
 paso_valley = Grid.new(3,5)
