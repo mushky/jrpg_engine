@@ -18,32 +18,26 @@
 # onto the console so that we have a neat 8x8 grid rendered onto the console.
 
 class Maps
-	def initialize(map)
-		@map = map
-	end
+  def initialize(map)
+    @map = map
+  end
 
-	def render_map(map)
-		@map.each_slice(8) {|rows| puts rows.join }
-	end
+  def render_map(map)
+    @map.each_slice(8) {|rows| puts rows.join }
+  end
 end
 
 #Note: this is an example map, move all maps to a seperate text file
 open_plain = [
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,			
+  0, 0, 0, 0, 0, 0, 0, 0, 
+  0, 0, 0, 0, 0, 0, 0, 0, 
+  0, 0, 0, 0, 0, 0, 0, 0, 
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,			
 ]
 
 open_plain = Maps.new(open_plain)
 open_plain.render_map(open_plain)
-
-
-
-
-
-
