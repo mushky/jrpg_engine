@@ -43,6 +43,7 @@ class Warrior
 	# This method gives the warrior object the ability to attack
 end
 
+
 Paso = Warrior.new("Paso", 100, "Warrior", 50, 20)
 # This is where the magic happens. This is where we instantiate an object from the warrior class. 
 # You can change some of the "properties" and see how that changes the code up.
