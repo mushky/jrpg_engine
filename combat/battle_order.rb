@@ -39,31 +39,30 @@ class Battle
 		  puts "ENEMY HP: #{computer_hp}"
 		  # Input: Attack, Defend, Run
 		  puts "Attack? [Type | Attack | to Attack]"
+		  puts "Defend? [Type | Defend | to Defend]" 
 		  input = gets.chomp
 		  if (input == "Attack" && player_turn == 1)
-			  damage = rand(30)
-			  puts "You have attacked the enemy for #{damage} points of damage."
-			  @computer_hp -= damage
-			  puts "\nNext Round of Combat"
-			  puts "-------------------------"
-
-			  win_battle #check if you won the battle
-			  lose_battle #check if you lost the battle
+		  	attack
 		  end
 
-		  battle_turn #check whose turn it is
+		  if (input == "Defend" && player_turn == 1)
+		    defend
+		  end
+
+		  whos_turn? #check whose turn it is
 		  enemy_damage = rand(30)
 		  puts "The enemy has attacked you for #{enemy_damage}"
 		  @player_hp -= enemy_damage
 		  puts "You have #{player_hp} hit points remaining."
 
-	    battle_turn #check whose turn it is
+	    whos_turn? #check whose turn it is
 		  win_battle #check if enemy won the battle
 		  lose_battle #check if enemy lost the battle
 	  end
   end
 
-  def battle_turn
+  # State of Battle
+  def whos_turn?
 	  if @player_turn == 0
 		  @enemy_turn == 1
 	  elsif @enemy_turn == 1
@@ -73,6 +72,26 @@ class Battle
 	  end
   end
 
+  def attack
+  	damage = rand(30)
+		puts "You have attacked the enemy for #{damage} points of damage."
+		@computer_hp -= damage
+		puts "\nNext Round of Combat"
+		puts "-------------------------"
+
+		win_battle #check if you won the battle
+		lose_battle #check if you lost the battle
+	end
+
+	def defend
+		puts "You are Defending *this doesn't seem very effective*"
+
+		win_battle
+		lose_battle
+	end
+
+	# Victory and Defeat Conditions
+	# Victory Condition
   def win_battle
 	  if (computer_hp <= 0)
 		  @battle_over = true
@@ -80,6 +99,7 @@ class Battle
 	  end
   end
 
+  # Defeat Condition
   def lose_battle
 	  if (player_hp <= 0)
 		  @battle_over = true
