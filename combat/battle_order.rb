@@ -1,10 +1,11 @@
 class Battle
-	attr_accessor :player, :player_hp, :player_first_strike, :computer, :computer_hp, :computer_first_strike, :battle_over
+	attr_accessor :player, :player_hp, :player_first_strike, :player_armor, :computer, :computer_hp, :computer_first_strike, :battle_over
 
-  def initialize(player, player_hp, player_first_strike, computer, computer_hp, computer_first_strike)
+  def initialize(player, player_hp, player_first_strike, player_armor, computer, computer_hp, computer_first_strike)
 	  #Player Stat Initialization
 	  @player = player
 	  @player_hp = player_hp
+	  @player_armor = player_armor
 	  @player_first_strike = player_first_strike
 		
 	  #Computer Stat Initialization
@@ -53,6 +54,7 @@ class Battle
 		  enemy_damage = rand(30)
 		  puts "The enemy has attacked you for #{enemy_damage}"
 		  @player_hp -= enemy_damage
+		  @player_hp += @player_armor
 		  puts "You have #{player_hp} hit points remaining."
 
 	    whos_turn? #check whose turn it is
@@ -84,8 +86,8 @@ class Battle
 	end
 
 	def defend
-		puts "You are Defending *this doesn't seem very effective*"
-
+		@player_armor+=1
+		puts "You are Defending!\nPlayer Armor Increased to #{@player_armor}!"
 		win_battle
 		lose_battle
 	end
@@ -109,6 +111,6 @@ class Battle
 
 end
 
-battle = Battle.new("Sarat", 70, rand(10), "Enemy", 90, rand(10))
+battle = Battle.new("Sarat", 70, rand(10), 1, "Enemy", 90, rand(10))
 battle.combat
 
