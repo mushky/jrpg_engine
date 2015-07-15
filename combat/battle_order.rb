@@ -1,5 +1,5 @@
 class Battle
-	attr_accessor :player, :player_hp, :player_first_strike, :player_armor, :computer, :computer_hp, :computer_first_strike, :battle_over
+  attr_accessor :player, :player_hp, :player_first_strike, :player_armor, :computer, :computer_hp, :computer_first_strike, :battle_over
 
   def initialize(player, player_hp, player_first_strike, player_armor, computer, computer_hp, computer_first_strike)
 	  #Player Stat Initialization
@@ -31,16 +31,23 @@ class Battle
 	  @battle_over = false
 
 	  while (battle_over != true)
-		  puts "\nYou are engaged in combat"
+		  puts "\nYou are Engaged in Combat!"
 		  # State
 	    player_turn = 1
 		  enemy_turn = 0
 		  # Status Bar
+		  puts "-----------------------------------"
 		  puts "PLAYER HP: #{player_hp}"
 		  puts "ENEMY HP: #{computer_hp}"
+		  puts "-----------------------------------"
+		  puts ""
 		  # Input: Attack, Defend, Run
+		  puts "-----------------------------------"
 		  puts "Attack? [Type | Attack | to Attack]"
-		  puts "Defend? [Type | Defend | to Defend]" 
+		  puts "Defend? [Type | Defend | to Defend]"
+		  puts "-----------------------------------" 
+		  
+		  print "\n>. "
 		  input = gets.chomp
 		  if (input == "Attack" && player_turn == 1)
 		  	attack
@@ -52,10 +59,10 @@ class Battle
 
 		  whos_turn? #check whose turn it is
 		  enemy_damage = rand(30)
-		  puts "The enemy has attacked you for #{enemy_damage}"
+		  puts "\nThe enemy has attacked you for #{enemy_damage}"
 		  @player_hp -= enemy_damage
 		  @player_hp += @player_armor
-		  puts "You have #{player_hp} hit points remaining."
+		  puts "\nYou have #{player_hp} hit points remaining."
 
 	    whos_turn? #check whose turn it is
 		  win_battle #check if enemy won the battle
@@ -66,9 +73,9 @@ class Battle
   # State of Battle
   def whos_turn?
 	  if @player_turn == 0
-		  @enemy_turn == 1
+		  @enemy_turn = 1
 	  elsif @enemy_turn == 1
-		  @player_turn == 0
+		  @player_turn = 0
 	  else
 		  nil
 	  end
@@ -92,7 +99,9 @@ class Battle
 		lose_battle
 	end
 
-	# Victory and Defeat Conditions
+	# Victory and Defeat Conditions #
+	# _____________________________ #
+
 	# Victory Condition
   def win_battle
 	  if (computer_hp <= 0)
@@ -113,4 +122,3 @@ end
 
 battle = Battle.new("Sarat", 70, rand(10), 1, "Enemy", 90, rand(10))
 battle.combat
-
