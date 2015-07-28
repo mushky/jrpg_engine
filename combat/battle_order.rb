@@ -2,52 +2,52 @@ class Battle
   attr_accessor :player, :player_hp, :player_first_strike, :player_armor, :computer, :computer_hp, :computer_first_strike, :battle_over
 
   def initialize(player, player_hp, player_first_strike, player_armor, computer, computer_hp, computer_first_strike)
-	  #Player Stat Initialization
-	  @player = player
-	  @player_hp = player_hp
-	  @player_armor = player_armor
-	  @player_first_strike = player_first_strike
+    #Player Stat Initialization
+    @player = player
+    @player_hp = player_hp
+    @player_armor = player_armor
+    @player_first_strike = player_first_strike
 		
-	  #Computer Stat Initialization
-	  @computer = computer
-	  @computer_hp = computer_hp
-	  @computer_first_strike = computer_first_strike
+    #Computer Stat Initialization
+    @computer = computer
+    @computer_hp = computer_hp
+    @computer_first_strike = computer_first_strike
   end
 
   def first_strike
     if (player_first_strike >= computer_first_strike)
-		  puts "Player has first strike, you have the initiative."
-		  return player_initiative = true
-	  else
-		  puts "Enemy has taken the initiative, Enemy has first strike."
-		  return player_initiative = false
-	  end
+      puts "Player has first strike, you have the initiative."
+      return player_initiative = true
+    else
+        puts "Enemy has taken the initiative, Enemy has first strike."
+	return player_initiative = false
+    end
   end
 
   def combat
-	  first_strike
-	  player_turn = 0
-	  enemy_turn = 0
-	  @battle_over = false
+    first_strike
+    player_turn = 0
+    enemy_turn = 0
+    @battle_over = false
 
-	  while (battle_over != true)
-		  puts "\nYou are Engaged in Combat!"
-		  # State
-	    player_turn = 1
-		  enemy_turn = 0
-		  # Status Bar
-		  puts "-----------------------------------"
-		  puts "PLAYER HP: #{player_hp}"
-		  puts "ENEMY HP: #{computer_hp}"
-		  puts "-----------------------------------"
-		  puts ""
-		  # Input: Attack, Defend, Run
-		  puts "-----------------------------------"
-		  puts "Attack? [Type | Attack | to Attack]"
-		  puts "Defend? [Type | Defend | to Defend]"
-		  puts "-----------------------------------" 
-		  
-		  print "\n>. "
+    while (battle_over != true)
+      puts "\nYou are Engaged in Combat!"
+      # State
+      player_turn = 1
+      enemy_turn = 0
+      # Status Bar
+      puts "-----------------------------------"
+      puts "PLAYER HP: #{player_hp}"
+      puts "ENEMY HP: #{computer_hp}"
+      puts "-----------------------------------"
+      puts ""
+      # Input: Attack, Defend, Run
+      puts "-----------------------------------"
+      puts "Attack? [Type | Attack | to Attack]"
+      puts "Defend? [Type | Defend | to Defend]"
+      puts "-----------------------------------" 
+      
+      print "\n>. "
 		  input = gets.chomp
 		  if (input == "Attack" && player_turn == 1)
 		  	attack
@@ -59,7 +59,7 @@ class Battle
 
 		  whos_turn? #check whose turn it is
 		  enemy_damage = rand(30)
-		  puts "\nThe enemy has attacked you for #{enemy_damage}"
+		  puts "\nThe enemy has ATTACKED you for #{enemy_damage} points of damage"
 		  @player_hp -= enemy_damage
 		  @player_hp += @player_armor
 		  puts "\nYou have #{player_hp} hit points remaining."
@@ -83,7 +83,7 @@ class Battle
 
   def attack
   	damage = rand(30)
-		puts "You have attacked the enemy for #{damage} points of damage."
+		puts "You ATTACKED the enemy for #{damage} points of damage."
 		@computer_hp -= damage
 		puts "\nNext Round of Combat"
 		puts "-------------------------"
@@ -94,7 +94,7 @@ class Battle
 
 	def defend
 		@player_armor+=1
-		puts "You are Defending!\nPlayer Armor Increased to #{@player_armor}!"
+		puts "You are DEFENDING!\nPlayer Armor Increased to #{@player_armor}!"
 		win_battle
 		lose_battle
 	end
