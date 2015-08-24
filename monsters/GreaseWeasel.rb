@@ -5,8 +5,8 @@ class GreaseWeasel #blueprints for all objects = class, bullets in vidgeo games 
 		@name		=	name
 		@hp 		=	hp
 		@job 		=	job
-		@choke 		= 	choke
-		@speed 		= 	speed
+		@choke 	= choke
+		@speed 	= speed
 	end
 
 	def list_stats
@@ -25,8 +25,6 @@ class GreaseWeasel #blueprints for all objects = class, bullets in vidgeo games 
 	def speed
 		puts "#{@speed}"
 	end
-
-
 end
 
 GreaseWeasel =GreaseWeasel.new("GreaseWeasel", 100, "GreaseWeasel", 50, 20)

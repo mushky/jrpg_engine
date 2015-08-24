@@ -5,8 +5,8 @@ class Rogue #blueprints for all objects = class, bullets in vidgeo games are the
 		@name		=	name
 		@hp 		=	hp
 		@job 		=	job
-		@dexterity 	= 	dexterity
-		@speed 		= 	speed
+		@dexterity 	= dexterity
+		@speed = speed
 	end
 
 	def list_stats

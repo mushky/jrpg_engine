@@ -113,4 +113,3 @@ end
 
 battle = Battle.new("Sarat", 70, rand(10), 1, "Enemy", 90, rand(10))
 battle.combat
-
